@@ -54,5 +54,16 @@
 	<string>Location Services are used to determine user&apos;s state</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location Services are used to determine user&apos;s state</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.yourcompany.BiometricsPOC</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>g2g</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

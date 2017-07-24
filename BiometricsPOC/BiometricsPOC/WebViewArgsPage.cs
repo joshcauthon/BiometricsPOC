@@ -28,6 +28,15 @@ namespace BiometricsPOC
             {
                 Debug.WriteLine("Navigating event hit...");
                 Debug.WriteLine($"URL: {args.Url}");
+
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+					if (args.Url.Contains("payment-authenticate"))
+					{
+						Debug.WriteLine("Calling Fingerprint scan...");
+						FingerprintAuthenticate();
+					}
+                }
             };
 
             webView.Navigated += (sender, args) =>
