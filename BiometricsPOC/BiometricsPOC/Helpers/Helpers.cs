@@ -14,10 +14,21 @@ namespace BiometricsPOC.Helpers
 
             if (!string.IsNullOrEmpty(url))
             {
-                var querystring = url.Substring(41);
+                var querystring = url;
 
-                source = "https://dev-v3.getgov2go.com/#/token/" + querystring;
-                return source;
+                if (querystring.Contains("app.getgov2go.com"))
+                {
+                    var token  = url.Substring(41);
+
+                    source = "https://dev-v3.getgov2go.com/#/token/" + token;
+                    return source;
+                }
+                else
+                {
+                    source = url;
+                    return source;
+                }
+
             }
 
             return source;
