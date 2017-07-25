@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using BiometricsPOC.Helpers;
 
 namespace BiometricsPOC
 {
     public class WebViewArgsPage : ContentPage
     {
         private CancellationTokenSource _cancel;
+        //private string _url;
 
         public WebViewArgsPage(string url)
         {
@@ -31,11 +33,11 @@ namespace BiometricsPOC
 
                 if (Device.RuntimePlatform == Device.iOS)
                 {
-					if (args.Url.Contains("payment-authenticate"))
-					{
-						Debug.WriteLine("Calling Fingerprint scan...");
-						FingerprintAuthenticate();
-					}
+                    if (args.Url.Contains("payment-authenticate"))
+                    {
+                        Debug.WriteLine("Calling Fingerprint scan...");
+                        FingerprintAuthenticate();
+                    }
                 }
             };
 
@@ -47,6 +49,7 @@ namespace BiometricsPOC
                 if (args.Url.Contains("payment-authenticate"))
                 {
                     Debug.WriteLine("Calling Fingerprint scan...");
+
                     FingerprintAuthenticate();
                 }
             };
@@ -85,6 +88,8 @@ namespace BiometricsPOC
             if (result.Authenticated)
             {
                 var alert = Application.Current.MainPage.DisplayAlert("Fingerprint scan successful", "Your fingerprint scan was successful.", "OK");
+                //Debug.WriteLine($"_url = {_url}");
+                //Application.Current.MainPage = new WebViewArgsPage(_url);
             }
             else
             {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace BiometricsPOC
 {
@@ -31,11 +32,15 @@ namespace BiometricsPOC
         {
             // Handle when your app resumes
 
+            Debug.WriteLine("OnResume hit...");
+
             if (Device.RuntimePlatform == Device.iOS)
             {
                 if (!string.IsNullOrEmpty(Settings.RedirectUrl))
                 {
                     var url = Helpers.Helpers.HandleUrl(Settings.RedirectUrl);
+
+                    Settings.RedirectUrl = string.Empty;
 
                     MainPage = new WebViewArgsPage(url);
                 }

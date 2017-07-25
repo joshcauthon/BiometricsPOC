@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiometricsPOC.Helpers
 {
-    public class Helpers
+    public static class Helpers
     {
         public static string HandleUrl(string url)
         {
@@ -18,7 +18,7 @@ namespace BiometricsPOC.Helpers
 
                 if (querystring.Contains("app.getgov2go.com"))
                 {
-                    var token  = url.Substring(41);
+                    var token = url.Substring(41);
 
                     source = "https://dev-v3.getgov2go.com/#/token/" + token;
                     return source;
