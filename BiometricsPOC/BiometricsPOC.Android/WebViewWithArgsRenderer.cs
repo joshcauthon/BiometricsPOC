@@ -60,7 +60,7 @@ namespace BiometricsPOC.Droid
             _webViewWithArgs.OnNavigating(new WebViewNavigationEventArgs
             {
                 Url = url
-            });
+            });         
         }
 
         public override void OnPageFinished(Android.Webkit.WebView view, string url)
@@ -70,7 +70,9 @@ namespace BiometricsPOC.Droid
             _webViewWithArgs.OnNavigated(new WebViewNavigatedEventArgs
             {
                 Url = url
-            });         
+            });     
+            
+
         }
     }
 }

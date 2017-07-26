@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 using Plugin.Fingerprint;
+using Android.Webkit;
 
 namespace BiometricsPOC.Droid
 {
@@ -24,6 +25,8 @@ namespace BiometricsPOC.Droid
             //A great place to initialize Xamarin.Insights and Dependency Services!
 
             CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
+
+            WebView.SetWebContentsDebuggingEnabled(true);
         }
 
         public override void OnTerminate()

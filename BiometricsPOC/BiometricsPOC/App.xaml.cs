@@ -40,6 +40,8 @@ namespace BiometricsPOC
                 {
                     var url = Helpers.Helpers.HandleUrl(Settings.RedirectUrl);
 
+                    //clears out redirectUrl as it is no longer needed, 
+                    //also helps keep iOS from reloading the page when hitting OnResume()
                     Settings.RedirectUrl = string.Empty;
 
                     MainPage = new WebViewArgsPage(url);
