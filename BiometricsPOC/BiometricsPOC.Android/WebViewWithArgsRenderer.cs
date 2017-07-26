@@ -57,6 +57,9 @@ namespace BiometricsPOC.Droid
         {
             base.OnPageStarted(view, url, favicon);
 
+            var cookieManager = CookieManager.Instance;
+            cookieManager.SetAcceptThirdPartyCookies(view, true);
+
             _webViewWithArgs.OnNavigating(new WebViewNavigationEventArgs
             {
                 Url = url
@@ -66,6 +69,9 @@ namespace BiometricsPOC.Droid
         public override void OnPageFinished(Android.Webkit.WebView view, string url)
         {
             base.OnPageFinished(view, url);
+
+            var cookieManager = CookieManager.Instance;
+            cookieManager.SetAcceptThirdPartyCookies(view, true);
 
             _webViewWithArgs.OnNavigated(new WebViewNavigatedEventArgs
             {
