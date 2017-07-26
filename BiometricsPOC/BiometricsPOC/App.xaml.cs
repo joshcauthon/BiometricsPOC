@@ -34,6 +34,7 @@ namespace BiometricsPOC
 
             Debug.WriteLine("OnResume hit...");
 
+            //This is used when using the g2g links on iOS, as it uses the OpenURL() then comes to OnResume
             if (Device.RuntimePlatform == Device.iOS)
             {
                 if (!string.IsNullOrEmpty(Settings.RedirectUrl))
