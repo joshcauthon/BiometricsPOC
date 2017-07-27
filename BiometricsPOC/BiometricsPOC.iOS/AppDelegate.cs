@@ -29,6 +29,8 @@ namespace BiometricsPOC.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(_Url));
 
+            NSHttpCookieStorage.SharedStorage.AcceptPolicy = NSHttpCookieAcceptPolicy.Always;
+
             return base.FinishedLaunching(app, options);
         }
 
